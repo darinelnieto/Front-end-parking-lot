@@ -1,0 +1,14 @@
+header{
+    background: #333;
+    height: auto;
+    padding: 10px 0;
+}
+.logo{
+    width: 100%;
+}
+.alinea-row{
+    align-items: center;
+}
+.nav-link, .nav-link:hover{
+    color:white;
+}
