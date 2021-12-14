@@ -61,12 +61,12 @@ function crear(){
 
 
 
-$('#select-search').on('change', function(){
+$('#select-search').change(function(){
     $('#vehicles').html(``);
     var key = 0;
     $.ajax({
         type:'GET',
-        url:"https://desmardig.com/api/vehicle/marck/",
+        url:"https://desmardig.com/api/vehicle/marck",
         data:{id:$(this).val()}
     }).done(function(res){
         for(item of res){
