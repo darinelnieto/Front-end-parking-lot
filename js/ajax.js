@@ -61,7 +61,7 @@ function crear(){
 
 
 
-$('#select-search').change(function(){
+$('#select-search').on('change', function(){
     $('#vehicles').html(``);
     var key = 0;
     $.ajax({
