@@ -67,7 +67,7 @@ $('#select-search').on('change', function(){
     $.ajax({
         type:'GET',
         url:"https://desmardig.com/api/vehicle/marck/",
-        data:{id:$('#select-search').val()}
+        data:{id:$(this).val()}
     }).done(function(res){
         for(item of res){
             key ++;
@@ -79,6 +79,7 @@ $('#select-search').on('change', function(){
                 </tr>
             `);
         }
+        console.log(res);
         if(key === 1){
             $('.cantidad').html(`<p>${key} vehículo</p>`);
         }else{
