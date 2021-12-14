@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $.ajax({
         type:'GET',
-        url:"http://desmardig.com/api/veicle/index",
+        url:"https://desmardig.com/api/veicle/index",
     }).done(function(res){
         for(item of res){
             $('#selectCreate').append(`
@@ -14,7 +14,7 @@ $(document).ready(function(){
     });
     $.ajax({
         type:'GET',
-        url:'http://desmardig.com/api/vehicle/show'
+        url:'https://desmardig.com/api/vehicle/show'
     }).done(function(data){
         var json = data.data;
         for(i = 0; i <= json.length; i++){
@@ -41,7 +41,7 @@ function crear(){
             }
         });
         $.ajax({
-            url:'http://desmardig.com/api/veicle/create',
+            url:'https://desmardig.com/api/veicle/create',
             method:'post',
             data:{
                 name:$('#name').val(),
@@ -66,7 +66,7 @@ $('#select-search').change(function(){
     var key = 0;
     $.ajax({
         type:'GET',
-        url:"http://desmardig.com/api/vehicle/marck/",
+        url:"https://desmardig.com/api/vehicle/marck/",
         data:{id:$('#select-search').val()}
     }).done(function(res){
         for(item of res){
@@ -91,7 +91,7 @@ $('#buscar').on('click', function(){
     $('#search-form').on('submit', function(e){
         $.ajax({
             type:'GET',
-            url:"http://desmardig.com/api/vehicle/search",
+            url:"https://desmardig.com/api/vehicle/search",
             data:{search:$('#search').val()}
         }).done(function(res){
             for(i = 0; i <= res.data.length; i++){
