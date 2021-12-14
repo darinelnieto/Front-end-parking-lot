@@ -12,3 +12,11 @@ header{
 .nav-link, .nav-link:hover{
     color:white;
 }
+.search-vh-mark{
+    display: flex;
+    align-items: center;
+}
+.cantidad p{
+    margin-left: 20px;
+    margin-bottom: 0;
+}

@@ -7,6 +7,9 @@ $(document).ready(function(){
             $('#selectCreate').append(`
                 <option value="${item.id}">${item.name}</option>
             `);
+            $('#select-search').append(`
+                <option value="${item.id}">${item.name}</option>
+            `);
         }
     });
     $.ajax({
@@ -14,7 +17,6 @@ $(document).ready(function(){
         url:'http://localhost:8000/api/vehicle/show'
     }).done(function(data){
         var json = data.data;
-        console.log(json);
         for(i = 0; i <= json.length; i++){
             $('#lista-marks').append(`
                 <tr>
@@ -56,3 +58,31 @@ function crear(){
     })
     
 }
+
+
+
+$('#select-search').change(function(){
+    $('#vehicles').html(``);
+    var key = 0;
+    $.ajax({
+        type:'GET',
+        url:"http://localhost:8000/api/vehicle/marck/",
+        data:{id:$('#select-search').val()}
+    }).done(function(res){
+        for(item of res){
+            key ++;
+            $('#vehicles').append(`
+                <tr>
+                    <td>${key}</td>
+                    <td>${item.license_plate}</td>
+                    <td>${item.vehicle_type}</td>
+                </tr>
+            `);
+        }
+        if(key === 1){
+            $('.cantidad').html(`<p>${key} vehículo</p>`);
+        }else{
+            $('.cantidad').html(`<p>${key} vehículos</p>`);
+        }
+    });
+});
