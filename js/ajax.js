@@ -86,3 +86,25 @@ $('#select-search').change(function(){
         }
     });
 });
+
+$('#buscar').on('click', function(){
+    $('#search-form').on('submit', function(e){
+        $.ajax({
+            type:'GET',
+            url:"http://localhost:8000/api/vehicle/search",
+            data:{search:$('#search').val()}
+        }).done(function(res){
+            for(i = 0; i <= res.data.length; i++){
+                $('#lista-marks').html(`
+                <tr>
+                    <td>${res.data[0][0].name}</td>
+                    <td>${res.data[0][0].identification_card}</td>
+                </tr>
+            `);
+        };
+        console.log(res);
+    });
+    this.reset();
+    e.preventDefault();
+});
+});
