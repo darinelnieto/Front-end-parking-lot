@@ -20,3 +20,7 @@ header{
     margin-left: 20px;
     margin-bottom: 0;
 }
+.btn-search-content{
+    display: flex;
+    justify-content: space-between;
+}

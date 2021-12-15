@@ -94,18 +94,27 @@ $('#buscar').on('click', function(){
             type:'GET',
             url:"https://desmardig.com/api/vehicle/search",
             data:{search:$('#search').val()}
-        }).done(function(res){
-            for(i = 0; i <= res.data.length; i++){
-                $('#lista-marks').html(`
-                <tr>
-                    <td>${res.data[0][0].name}</td>
-                    <td>${res.data[0][0].identification_card}</td>
-                </tr>
+        }).done(function(data){
+            $('#thead').html(`
+                <th>Nombre de usuario</th>
+                <th>Cedula</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
             `);
-        };
-        console.log(res);
+            Json = data.data;
+            
+            for(item of Json){
+                $('#lista-marks').html(`
+                    <tr>
+                        <td>${item[0].name}</td>
+                        <td>${item[0].identification_card}</td>
+                        <td>${item[0].phone}</td>
+                        <td>${item[0].email}</td>
+                    </tr>
+                `);
+            };
+        });
+        this.reset();
+        e.preventDefault();
     });
-    this.reset();
-    e.preventDefault();
-});
 });
